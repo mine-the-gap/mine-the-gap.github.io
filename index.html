@@ -5,16 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MINE-THE-GAP</title>
     <meta name="description" content="Where, when, what, and how much is mined. Research by Victor Maus.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300&family=Montserrat:ital,wght@0,300;0,400;0,500;0,700;1,300&display=swap" rel="stylesheet">
+
     <style>
-        /* --- CSS VARIABLES & RESET --- */
         :root {
-            --primary-color: #c9302c; /* Red from slides */
-            --text-color: #333;
-            --bg-color: #fcfcfc;
-            --section-bg: #ffffff;
-            --transition-speed: 0.6s;
+            /* Colors */
+            --bg-color: #FAFAFA;          /* Dr White */
+            --text-primary: #1A292C;      /* from h1, h2, h3 colors */
+
+            --green-light: #306056;
+            --green-dark: #0a332b;
+            
+            --red-light: #cc3e5b;
+            --red-dark: #80021b;
+            
+            --yellow-light: #f6ae2d;
+            --yellow-dark: #996c1c;
+
+            /* Fonts */
+            --font-main: 'Montserrat', 'Droid Serif', sans-serif; /* */
         }
 
+        /* --- 2. GLOBAL RESET & BASE STYLES --- */
         * {
             box-sizing: border-box;
             margin: 0;
@@ -22,118 +37,224 @@
         }
 
         body {
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-            color: var(--text-color);
+            font-family: var(--font-main);
+            color: var(--text-primary);
             background-color: var(--bg-color);
-            line-height: 1.6;
+            font-weight: 300; /* */
+            line-height: 1.5;
             overflow-x: hidden;
         }
 
-        /* --- TYPOGRAPHY --- */
-        h1, h2, h3 {
-            font-weight: 700;
-            margin-bottom: 1rem;
+        a {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        a:hover {
+            color: var(--yellow-dark);
         }
 
-        h1 { font-size: 3.5rem; letter-spacing: -1px; }
-        h2 { font-size: 2.5rem; color: var(--primary-color); }
-        h3 { font-size: 1.5rem; color: #555; }
-        p { font-size: 1.125rem; margin-bottom: 1.5rem; max-width: 800px; }
-        
-        .highlight { font-weight: bold; color: var(--primary-color); }
-        .citation { font-size: 0.9rem; color: #777; font-style: italic; display: block; margin-top: 0.5rem; }
+        /* --- 3. TYPOGRAPHY --- */
+        h1, h2, h3 {
+            color: var(--text-primary);
+            margin-bottom: 0.5em;
+            text-shadow: none; /* */
+        }
 
-        /* --- LAYOUT --- */
+        p {
+            font-size: 1.125rem; /* Approx 18px */
+            margin-bottom: 1.5rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .red-light {
+            color: var(--red-light);
+            font-weight: 700; /* */
+        }
+
+        .citation {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            font-style: italic;
+            margin-top: 0.5rem;
+        }
+
+        /* --- 4. LAYOUT SECTIONS --- */
         section {
-            min-height: 100vh; /* Each section takes full screen height */
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             padding: 4rem 2rem;
             text-align: center;
-            border-bottom: 1px solid #eee;
+            border-top: 1px solid bg-color;
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
             width: 100%;
+            position: relative;
         }
 
         img {
-            max-width: 100%;
+            max-width: 70%;
             height: auto;
-            border-radius: 8px;
-            margin: 2rem 0;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 0px;
         }
 
-        /* --- SPECIFIC SECTIONS --- */
-        
-        /* Hero Section */
+        #outcomes img {
+            max-width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        #problem img {
+            max-width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* --- 5. SPECIFIC SECTIONS --- */
+
+        /* === TITLE SLIDE STYLE === */
         #hero {
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            text-align: center;
+            align-items: center;
+            padding: 4rem 1rem; 
+            border-top: none;
+            width: 100%;
         }
 
-        /* Outcomes Grid */
+        #hero h1 {
+            color: var(--yellow-light); /* #F6AE2D */
+            font-size: clamp(2rem, 6vw, 5rem); /* Responsive scaling close to 110px */
+            font-weight: 900; /* Extra bold */
+            margin-bottom: 1rem;
+            line-height: 1;
+        }
+
+
+
+        #hero h2 {
+            font-size: 1.3rem;
+            opacity: 0.7;
+            font-weight: 600;
+        }
+
+        #problem h2 {
+            font-size: 1.3rem;
+            opacity: 0.7;
+            font-weight: 600;
+        }
+
+        #outcomes h2 {
+            font-size: 1.3rem;
+            opacity: 0.7;
+            font-weight: 600;
+        }
+        
+
+        #hero h3 {
+            font-size: 1rem;
+            opacity: 0.7;
+            font-weight: 500;
+        }
+
+        .hero-author {
+            margin-top: 3rem;
+            font-weight: 500;
+        }
+
+        /* === CONTENT SLIDES STYLE === */
+        .section-title {
+            font-size: 1.5rem; /* 35px in CSS */
+            font-weight: 700;
+            opacity: 0.7;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        /* === OUTCOMES GRID === */
         .outcomes-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 2rem;
             margin-top: 2rem;
-            text-align: left;
         }
         
         .outcome-card {
-            background: white;
-            padding: 1.5rem;
+            padding: 2rem;
             border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            color: white; /* Text white for colored backgrounds */
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
             transition: transform 0.3s ease;
         }
+        
         .outcome-card:hover { transform: translateY(-5px); }
+        .outcome-card h3 { color: white; }
+        .outcome-card p { font-size: 1rem; }
+        .outcome-card img { border-radius: 4px; border: 2px solid rgba(255,255,255,0.3); }
 
-        /* Outlook Lists */
-        .outlook-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 4rem;
-            justify-content: center;
+        /* Applying colors from */
+        .card-1 { background-color: var(--card-purple); }
+        .card-2 { background-color: var(--card-orange); }
+        .card-3 { background-color: var(--card-blue); }
+        .card-4 { background-color: var(--card-pink); }
+
+        /* === OUTLOOK / FOOTER === */
+        #outlook ul {
             text-align: left;
+            list-style: none;
+            max-width: 600px;
+            margin: 0 auto;
         }
-        .outlook-box ul { list-style-type: none; }
-        .outlook-box li { 
-            margin-bottom: 0.8rem; 
-            padding-left: 1.5rem; 
-            position: relative; 
+        
+        #outlook li {
+            margin-bottom: 1rem;
+            padding-left: 1.5rem;
+            position: relative;
+            font-size: 1.2rem;
+            opacity: 0.8;
         }
-        .outlook-box li::before {
+
+        #outlook li::before {
             content: "•";
-            color: var(--primary-color);
+            color: var(--red-light);
             font-weight: bold;
             position: absolute;
             left: 0;
+            font-size: 1.5em;
+            line-height: 1;
         }
 
-        /* Footer */
         footer {
-            background-color: #222;
+            background-color: var(--text-primary);
             color: #fff;
-            padding: 3rem 1rem;
+            padding: 4rem 1rem;
             text-align: center;
         }
-        footer a { color: #fff; text-decoration: underline; }
-        footer p { margin: 0.5rem auto; color: #ccc; }
+        
+        footer h3 { color: #fff; opacity: 0.9; }
+        footer a { text-decoration: underline; opacity: 0.8; }
+        footer a:hover { color: var(--yellow-light); opacity: 1; }
 
-        /* --- SCROLL ANIMATIONS --- */
-        .fade-in-section {
+        /* Animation class */
+        .fade-in {
             opacity: 0;
             transform: translateY(20px);
-            transition: opacity var(--transition-speed) ease-out, transform var(--transition-speed) ease-out;
-            will-change: opacity, visibility;
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
         }
-        .fade-in-section.is-visible {
+        .fade-in.visible {
             opacity: 1;
             transform: none;
         }
@@ -143,148 +264,77 @@
 <body>
 
     <section id="hero">
-        <div class="fade-in-section">
+        <div class="fade-in">
             <h1>MINE-THE-GAP</h1>
-            <h3>Where, when, what, and how much is mined</h3>
-            <div style="margin-top: 2rem;">
-                <p><strong>Victor Maus</strong> & Huw Werner</p>
-                <p class="citation">Mining is in the spotlight due to the global energy transition, yet data gaps remain.</p>
-            </div>
+            <h2>Where, when, what, and how much is mined globally</h2>
+            <h3>ERC Consolidator Grant project</h3>
         </div>
     </section>
 
     <section id="problem">
-        <div class="container fade-in-section">
-            <h2>The Knowledge Gap</h2>
-            <p>
-                In our research, we geo-located several thousand mines worldwide. To our surprise, we found that 
-                <span class="highlight">more than half of mining impacts are undocumented globally</span>.
-            </p>
-            <p>
-                The main reason for this gap is that we lack methods to measure mining impacts in a consistent way.
-            </p>
-            
-            <img src="assets/img/gap_map-red.png" alt="Map showing global mining data gaps" style="max-height: 60vh;">
-            
-            <p class="citation">Source: Maus & Werner (2024) Nature</p>
-            
-            <h3>How can we produce timely, locally relevant, and globally reliable mine-level indicators?</h3>
+        <div class="container fade-in">
+            <!-- <img src="assets/img/gap_map-red.png" alt="Map showing global mining data gaps"> -->
+            <h2>Global energy transition and digitalization are increasing demand for minerals. 
+            <strong>MINE-THE-GAP</strong> addresses the urgent need for spatial information to understand these impacts.</h2>
+            <!-- <h2 class="section-title">What is the extent of the mining sector's undocumented global footprint?</h2> -->
         </div>
     </section>
 
     <section id="methods">
-        <div class="container fade-in-section">
-            <h2>Aim & Innovation</h2>
-            <p>
-                The goal of MINE-THE-GAP is to develop scalable models to map mining indicators using 
-                <strong>Artificial Intelligence (AI)</strong> and <strong>Satellite Earth Observation</strong>.
-            </p>
-
-            <div style="position: relative; max-width: 800px; margin: 0 auto;">
+        <div class="container fade-in">
+            <div style="position: relative; max-width: 900px; margin: 0 auto; display: flex; flex-direction: column; gap: 2rem;">
                 <img src="assets/img/MINE-THE-GAP-aim.png" alt="Project Aim Diagram">
                 <img src="assets/img/MINE-THE-GAP-innovation.png" alt="Innovation Strategy Diagram">
             </div>
+            <strong>MINE-THE-GAP</strong> will develop scalable models to map key sets of mine-level indicators using 
+            artificial intelligence and satellite earth observation
+            <!-- <h2 class="section-title">MINE-THE-GAP will develop scalable models to map mining indicators using 
+                artificial intelligence and satellite earth observation
+            </h2> -->
 
-            <p style="text-align: left; margin-top: 2rem;">
-                <strong>The Strategy:</strong> We combine multi-modal remote sensing data innovatively. We use high-resolution imagery to increase training data availability, and lower-resolution (but continuous global coverage) satellites to compose the predictor space for AI models. This allows us to produce reliable models that can be applied globally.
-            </p>
         </div>
     </section>
 
     <section id="outcomes">
-        <div class="container fade-in-section">
-            <h2>Outcomes</h2>
-            <p>The project delivers four key sets of models and data:</p>
-            
-            <div class="outcomes-grid">
-                <div class="outcome-card">
-                    <h3>1. Land Use</h3>
-                    <img src="assets/img/outcome1.png" alt="Land Use Mapping">
-                    <p>Geolocation of mining infrastructures, such as open pits and waste piles.</p>
-                </div>
-                <div class="outcome-card">
-                    <h3>2. Volumes</h3>
-                    <img src="assets/img/outcome2.png" alt="Volume Estimation">
-                    <p>3D models to measure volumes, helping estimate how much waste is generated.</p>
-                </div>
-                <div class="outcome-card">
-                    <h3>3. Commodities</h3>
-                    <img src="assets/img/outcome3.png" alt="Commodity Detection">
-                    <p>Detection of commodities to link mining impacts to their underlying economic drivers.</p>
-                </div>
-                <div class="outcome-card">
-                    <h3>4. Integration</h3>
-                    <img src="assets/img/outcome4.png" alt="Data Integration">
-                    <p>A validated framework to answer: Where, when, what, and how much is mined worldwide.</p>
-                </div>
-            </div>
+        <div class="container fade-in">
+            <h2>Global mine-level indicators</h2>
+            <img src="assets/img/mtg-outcome.png" alt="Data Integration">
+            The project will advance research on spatial data science and sustainability and enable understanding spatiotemporal socio-ecological dynamics of mineral extraction globally.
         </div>
+        <br><br>
+        <a href="https://victormaus.github.io/projects/mine_the_gap.html#hiring" style="color: #d9534f; font-weight: bold; text-decoration: none; font-size: 1.1em;">
+        Open jobs!
+        </a>
     </section>
 
-    <section id="outlook">
-        <div class="container fade-in-section">
-            <h2>Outlook</h2>
-            <p>
-                The global energy transition and digitalization are increasing demand for minerals. 
-                MINE-THE-GAP addresses the urgent need for spatial information to understand these impacts.
-            </p>
-            
-            <div class="outlook-container">
-                <div class="outlook-box">
-                    <h3>Innovation</h3>
-                    <ul>
-                        <li>New set of indicators to measure mining impacts.</li>
-                        <li>Scalable methods to map mine-level indicators globally.</li>
-                        <li>Comprehensive mining data independent from company reports.</li>
-                    </ul>
-                </div>
-
-                <div class="outlook-box">
-                    <h3>Impact</h3>
-                    <ul>
-                        <li>Methods to scale remote sensing applications.</li>
-                        <li>Enabling research on mining and sustainability.</li>
-                        <li>Increasing transparency in the mining sector.</li>
-                        <li>Supporting the European Green Deal and SDGs.</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
+    
     <footer>
         <div class="container">
-            <h3>Under Construction</h3>
-            <p>More information and data coming soon.</p>
             <br>
-            <p><strong>Contact:</strong> <a href="mailto:victor.maus@wu.ac.at">victor.maus@wu.ac.at</a></p>
-            <p><strong>Web:</strong> <a href="https://victormaus.github.io" target="_blank">victormaus.github.io</a></p>
+            <h3>More information and data coming soon!</h3>
             <br>
-            <p style="font-size: 0.8rem; opacity: 0.6;">&copy; 2025 Victor Maus. All rights reserved.</p>
+            <p><strong>Contact:</strong>
+                <a href="mailto:victor.maus@wu.ac.at">victor.maus@wu.ac.at</a>
+                <br>
+                <a href="https://victormaus.github.io" target="_blank">victormaus.github.io</a>
+            </p>
+            <br>
+            <p style="font-size: 0.8rem; opacity: 0.5;">&copy; 2025 Victor Maus. All rights reserved.</p>
         </div>
     </footer>
 
     <script>
-        // Simple Intersection Observer to fade in elements as they scroll into view
+        // Simple Intersection Observer to fade in elements
         document.addEventListener("DOMContentLoaded", function() {
-            const observerOptions = {
-                root: null,
-                rootMargin: '0px',
-                threshold: 0.1
-            };
-
-            const observer = new IntersectionObserver((entries, observer) => {
+            const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        entry.target.classList.add('is-visible');
-                        observer.unobserve(entry.target); // Only animate once
+                        entry.target.classList.add('visible');
                     }
                 });
-            }, observerOptions);
+            }, { threshold: 0.1 });
 
-            document.querySelectorAll('.fade-in-section').forEach(section => {
-                observer.observe(section);
-            });
+            document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
         });
     </script>
 </body>
