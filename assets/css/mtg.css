@@ -1,0 +1,120 @@
+/* MINE-THE-GAP Global Core Styles */
+:root {
+    --primary-dark: #1a1a1c;
+    --header-bg: #454548; 
+    --accent-red: #e63946;
+    --yellow-light: #f6ae2d; 
+    --text-main: #3c4043;
+    --text-dark: #23373B;
+    --bg-dr-wite: #fafafaed;
+    --bg-glass: rgba(255, 255, 255, 0.96);
+    --header-height: 50px; 
+}
+
+body { 
+    margin: 0; 
+    padding: 0; 
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
+    color: var(--text-main); 
+}
+
+/* Navigation Header */
+#nav-header {
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    right: 0; 
+    height: var(--header-height);
+    background: var(--header-bg); 
+    display: flex; 
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px; 
+    z-index: 2000; 
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.brand {
+    color: #ffffff; 
+    text-decoration: none; 
+    font-weight: 900;
+    font-size: 1.1rem; 
+    letter-spacing: 0.5px;
+}
+.brand span { color: var(--yellow-light); }
+
+.erc-logo { 
+    height: 30px; 
+    width: auto;
+    object-fit: contain;
+}
+
+/* Modal System */
+#modal-overlay {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.75);
+    z-index: 3000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: all 0.2s ease;
+}
+#modal-overlay.active { visibility: visible; opacity: 1; }
+
+#data-modal {
+    background: white;
+    width: 90%;
+    max-width: 550px;
+    max-height: 80vh;
+    border-radius: 12px;
+    padding: 25px;
+    overflow-y: auto;
+    position: relative;
+    color: var(--text-dark);
+}
+
+#data-modal h2 { margin-top: 0; font-size: 1.3rem; }
+#data-modal p { line-height: 1.5; font-size: 0.9rem; color: #444; }
+
+.modal-close {
+    margin-top: 20px;
+    text-align: right;
+    border-top: 1px solid #eee;
+    padding-top: 15px;
+}
+
+.btn-close {
+    background: var(--primary-dark);
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+/* Utility Components */
+.warning-box {
+    background: #fff8e1;
+    border-left: 4px solid #ffc107;
+    padding: 12px;
+    margin: 15px 0;
+    font-size: 0.85rem;
+    border-radius: 4px;
+}
+
+.code-block {
+    background: #f1f3f4;
+    padding: 8px;
+    border-radius: 4px;
+    font-family: monospace;
+    font-size: 0.75rem;
+    word-break: break-all;
+    margin: 10px 0;
+    display: block;
+    border: 1px solid #ddd;
+}
