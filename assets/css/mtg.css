@@ -118,3 +118,14 @@ body {
     display: block;
     border: 1px solid #ddd;
 }
+
+/* Ensure links inherit the main text color instead of default blue */
+a {
+    color: inherit;
+    text-decoration: none; /* Optional: removes the underline as well */
+}
+
+/* Optional: Add a hover state so users know it is clickable */
+a:hover {
+    color: var(--yellow-light); /* Or any other accent color from your variables */
+}
