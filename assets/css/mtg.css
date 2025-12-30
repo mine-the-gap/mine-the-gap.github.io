@@ -18,15 +18,14 @@ body {
     color: var(--text-main); 
 }
 
-/* Global Link Styling */
 a {
     color: var(--text-light); /* Lighter than main text */
-    text-decoration: none;
+    text-decoration: underline;
     transition: color 0.2s ease;
 }
 
 a:hover {
-    color: var(--yellow-light);
+    color: var(--accent-red);
 }
 
 /* Navigation Header */
