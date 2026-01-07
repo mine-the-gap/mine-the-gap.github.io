@@ -3,7 +3,7 @@
    ============================================================ */
 :root {
     --primary-dark: #1a1a1c;
-    --header-bg: #454548; 
+    --header-bg: #23373B; 
     --accent-red: #e63946;
     --red-light: #cc3e5b;
     --yellow-light: #f6ae2d; 
@@ -47,7 +47,7 @@ a:hover {
     position: fixed; 
     top: 0; left: 0; right: 0; 
     height: var(--header-height);
-    background: var(--text-dark); 
+    background: var(--header-bg); 
     display: flex; 
     align-items: center;
     justify-content: space-between;
@@ -97,7 +97,7 @@ a:hover {
     padding: 25px;
     overflow-y: auto;
     position: relative;
-    color: var(--text-dark);
+    color: var(--header-bg);
 }
 
 #data-modal h2 { margin-top: 0; font-size: 1.3rem; }
@@ -143,13 +143,12 @@ a:hover {
 }
 
 /* Section Layouts */
-section {
+.fullscreen-section {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 4rem 2rem;
     text-align: center;
     width: 100%;
 }
@@ -216,7 +215,7 @@ img {
 
 /* Footer Styling */
 footer {
-    background-color: var(--text-dark);
+    background-color: var(--header-bg);
     color: #fff;
     padding: 4rem 1rem;
     text-align: center;
@@ -268,7 +267,7 @@ footer a:hover { color: var(--yellow-light); opacity: 1; }
     text-decoration: none;
     font-weight: 600;
     font-size: 0.95rem;
-    text-transform: uppercase;
+    text-transform: capitalize;
     transition: color 0.3s ease;
 }
 
