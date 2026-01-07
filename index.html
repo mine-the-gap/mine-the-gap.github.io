@@ -10,50 +10,56 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300&family=Montserrat:ital,wght@0,300;0,400;0,500;0,700;1,300&display=swap" rel="stylesheet">
 
+    <!-- Styles -->
     <link rel="stylesheet" href="assets/css/mtg.css">
+    
+    <!-- Reusable Components -->
+    <script src="assets/js/header.js" defer></script>
+    <script src="assets/js/footer.js" defer></script>
 </head>
 <body>
 
-    <header id="nav-header">
-        <a href="#" class="brand"><span>MINE-THE-GAP</span></a>
-    </header>
+    <!-- Reusable Header Tag -->
+    <project-header></project-header>
 
-    <section id="hero">
-        <div class="fade-in">
-            <h1>MINE-THE-GAP</h1>
-            <h2>Where, when, what, and how much is mined globally</h2>
-            <h3>ERC Consolidator Grant project</h3>
-        </div>
-    </section>
-
-    <section id="problem">
-        <div class="container fade-in">
-            <h2>Global energy transition and digitalization are increasing demand for minerals. 
-            <strong>MINE-THE-GAP</strong> addresses the urgent need for spatial information to understand these impacts.</h2>
-        </div>
-    </section>
-
-    <section id="methods">
-        <div class="container fade-in">
-            <div style="max-width: 900px; margin: 0 auto; display: flex; flex-direction: column; gap: 2rem;">
-                <img src="assets/img/MINE-THE-GAP-aim.png" alt="Project Aim">
-                <img src="assets/img/MINE-THE-GAP-innovation.png" alt="Innovation Strategy">
+    <main>
+        <section id="hero">
+            <div class="fade-in">
+                <h1>MINE-THE-GAP</h1>
+                <h2>Where, when, what, and how much is mined globally</h2>
+                <h3>ERC Consolidator Grant project</h3>
             </div>
-            <p><strong>MINE-THE-GAP</strong> will develop scalable models to map key sets of mine-level indicators using artificial intelligence and satellite earth observation.</p>
-        </div>
-    </section>
+        </section>
 
-    <section id="outcomes">
-        <div class="container fade-in">
-            <h2>Global mine-level indicators</h2>
-            <img src="assets/img/mtg-outcome.png" alt="Data Integration">
-            <p>The project will advance research on spatial data science and sustainability and enable understanding spatiotemporal socio-ecological dynamics of mineral extraction globally.</p>
-        </div>
-        <br>
-        <a href="https://victormaus.github.io/projects/mine_the_gap.html#hiring" style="color: var(--accent-red); font-weight: bold; text-decoration: none; font-size: 1.1em;">
-            Open jobs!
-        </a>
-    </section>
+        <section id="problem">
+            <div class="container fade-in">
+                <h2>Global energy transition and digitalization are increasing demand for minerals. 
+                <strong>MINE-THE-GAP</strong> addresses the urgent need for spatial information to understand these impacts.</h2>
+            </div>
+        </section>
+
+        <section id="methods">
+            <div class="container fade-in">
+                <div style="max-width: 900px; margin: 0 auto; display: flex; flex-direction: column; gap: 2rem;">
+                    <img src="assets/img/MINE-THE-GAP-aim.png" alt="Project Aim" onerror="this.style.display='none'">
+                    <img src="assets/img/MINE-THE-GAP-innovation.png" alt="Innovation Strategy" onerror="this.style.display='none'">
+                </div>
+                <p><strong>MINE-THE-GAP</strong> will develop scalable models to map key sets of mine-level indicators using artificial intelligence and satellite earth observation.</p>
+            </div>
+        </section>
+
+        <section id="outcomes">
+            <div class="container fade-in">
+                <h2>Global mine-level indicators</h2>
+                <img src="assets/img/mtg-outcome.png" alt="Data Integration" onerror="this.style.display='none'">
+                <p>The project will advance research on spatial data science and sustainability and enable understanding spatiotemporal socio-ecological dynamics of mineral extraction globally.</p>
+            </div>
+            <br>
+            <a href="https://victormaus.github.io/projects/mine_the_gap.html#hiring" style="color: var(--accent-red); font-weight: bold; text-decoration: none; font-size: 1.1em;">
+                Open jobs!
+            </a>
+        </section>
+    </main>
 
     <div id="modal-overlay">
         <div id="data-modal">
@@ -65,19 +71,12 @@
         </div>
     </div>
 
-    <footer>
-        <div class="container">
-            <h3>More information and data coming soon!</h3>
-            <p><strong>Contact:</strong>
-                <a href="mailto:victor.maus@wu.ac.at">victor.maus@wu.ac.at</a> | 
-                <a href="https://victormaus.github.io" target="_blank">victormaus.github.io</a>
-            </p>
-            <p style="font-size: 0.8rem; opacity: 0.5;">&copy; 2025 Victor Maus. All rights reserved.</p>
-        </div>
-    </footer>
+    <!-- Reusable Footer Tag -->
+    <project-footer></project-footer>
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
+            // Intersection Observer for fade-in animations
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {

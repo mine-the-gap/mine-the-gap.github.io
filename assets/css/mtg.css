@@ -10,22 +10,26 @@
     --yellow-dark: #996c1c;
     --text-main: #1A292C;
     --text-dark: #23373B;
-    --text-light: #70757a; /* Lighter color for links/secondary text */
+    --text-light: #70757a; 
     --bg-color: #FAFAFA;
     --bg-glass: rgba(255, 255, 255, 0.96);
-    --header-height: 50px;
+    --header-height: 40px;
     --font-main: 'Montserrat', 'Droid Serif', sans-serif;
+}
+
+* {
+    box-sizing: border-box; 
 }
 
 body { 
     margin: 0; 
     padding: 0; 
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; 
     font-family: var(--font-main), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
     color: var(--text-main);
     background-color: var(--bg-color);
     font-weight: 300;
-    overflow-x: hidden;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    width: 100%;
 }
 
 a {
@@ -40,10 +44,10 @@ a:hover {
 
 /* Navigation Header */
 #nav-header {
-    position: absolute; 
+    position: fixed; 
     top: 0; left: 0; right: 0; 
     height: var(--header-height);
-    background: var(--header-bg); 
+    background: var(--text-dark); 
     display: flex; 
     align-items: center;
     justify-content: space-between;
@@ -138,9 +142,7 @@ a:hover {
     border: 1px solid #ddd;
 }
 
-
-
-/* Section Layouts from index.html */
+/* Section Layouts */
 section {
     min-height: 100vh;
     display: flex;
@@ -149,6 +151,7 @@ section {
     align-items: center;
     padding: 4rem 2rem;
     text-align: center;
+    width: 100%;
 }
 
 .container {
@@ -161,17 +164,17 @@ section {
 #hero {
     text-align: center;
     align-items: center;
-    padding: 4rem 1rem; 
+    padding: calc(var(--header-height) + 4rem) 1rem 4rem 1rem; 
     border-top: none;
     width: 100%;
 }
 
 #hero h1 {
     color: var(--yellow-light);
-    font-size: clamp(2rem, 6vw, 5rem);
+    font-size: clamp(2.5rem, 8vw, 5rem);
     font-weight: 900;
     margin-bottom: 1rem;
-    line-height: 1;
+    line-height: 1.1;
 }
 
 #hero h2, #problem h2, #outcomes h2 {
@@ -217,8 +220,100 @@ footer {
     color: #fff;
     padding: 4rem 1rem;
     text-align: center;
+    width: 100%;
 }
 
 footer h3 { color: #fff; opacity: 0.9; }
 footer a { color: #fff; text-decoration: underline; opacity: 0.8; }
 footer a:hover { color: var(--yellow-light); opacity: 1; }
+
+/* ============================================================
+   MINE-THE-GAP Extensions (Specific to this project)
+   ============================================================ */
+.mtg-footer {
+    padding-top: 6rem !important; /* Make footer sit lower */
+    margin-top: 4rem;
+}
+
+.mtg-footer-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 3rem;
+    text-align: left;
+}
+
+.mtg-footer-col-left {
+    flex: 1;
+    min-width: 300px;
+    max-width: 700px;
+}
+
+.mtg-footer-col-right {
+    flex: 0 1 auto;
+    min-width: 250px;
+    text-align: right;
+}
+
+.mtg-nav-menu {
+    display: flex;
+    gap: 25px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.mtg-nav-link {
+    color: #fff !important;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+}
+
+.mtg-nav-link:hover {
+    color: var(--yellow-light) !important;
+}
+
+.mtg-menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    padding: 5px;
+}
+
+@media (max-width: 768px) {
+    .mtg-menu-toggle { 
+        display: block; 
+    }
+    
+    .mtg-nav-menu {
+        position: absolute;
+        top: var(--header-height);
+        left: 0;
+        width: 100%;
+        background: var(--header-bg);
+        flex-direction: column;
+        text-align: center;
+        padding: 0;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease, padding 0.4s ease;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+    }
+    
+    .mtg-nav-menu.active { 
+        max-height: 300px;
+        padding: 20px 0;
+    }
+
+    .mtg-nav-menu li {
+        padding: 15px 0;
+    }
+
+    .mtg-footer-grid { flex-direction: column; text-align: center; }
+    .mtg-footer-col-right { text-align: center; width: 100%; }
+}
