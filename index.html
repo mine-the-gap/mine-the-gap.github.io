@@ -10,258 +10,13 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300&family=Montserrat:ital,wght@0,300;0,400;0,500;0,700;1,300&display=swap" rel="stylesheet">
 
-    <style>
-        :root {
-            /* Colors */
-            --bg-color: #FAFAFA;          /* Dr White */
-            --text-primary: #1A292C;      /* from h1, h2, h3 colors */
-
-            --green-light: #306056;
-            --green-dark: #0a332b;
-            
-            --red-light: #cc3e5b;
-            --red-dark: #80021b;
-            
-            --yellow-light: #f6ae2d;
-            --yellow-dark: #996c1c;
-
-            /* Fonts */
-            --font-main: 'Montserrat', 'Droid Serif', sans-serif; /* */
-        }
-
-        /* --- 2. GLOBAL RESET & BASE STYLES --- */
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        body {
-            font-family: var(--font-main);
-            color: var(--text-primary);
-            background-color: var(--bg-color);
-            font-weight: 300; /* */
-            line-height: 1.5;
-            overflow-x: hidden;
-        }
-
-        a {
-            color: inherit;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        a:hover {
-            color: var(--yellow-dark);
-        }
-
-        /* --- 3. TYPOGRAPHY --- */
-        h1, h2, h3 {
-            color: var(--text-primary);
-            margin-bottom: 0.5em;
-            text-shadow: none; /* */
-        }
-
-        p {
-            font-size: 1.125rem; /* Approx 18px */
-            margin-bottom: 1.5rem;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        .red-light {
-            color: var(--red-light);
-            font-weight: 700; /* */
-        }
-
-        .citation {
-            font-size: 0.9rem;
-            opacity: 0.8;
-            font-style: italic;
-            margin-top: 0.5rem;
-        }
-
-        /* --- 4. LAYOUT SECTIONS --- */
-        section {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            padding: 4rem 2rem;
-            text-align: center;
-            border-top: 1px solid bg-color;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            width: 100%;
-            position: relative;
-        }
-
-        img {
-            max-width: 70%;
-            height: auto;
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-            margin-top: 2rem;
-            margin-bottom: 2rem;
-            border-radius: 0px;
-        }
-
-        #outcomes img {
-            max-width: 100%;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        #problem img {
-            max-width: 100%;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        /* --- 5. SPECIFIC SECTIONS --- */
-
-        /* === TITLE SLIDE STYLE === */
-        #hero {
-            text-align: center;
-            align-items: center;
-            padding: 4rem 1rem; 
-            border-top: none;
-            width: 100%;
-        }
-
-        #hero h1 {
-            color: var(--yellow-light); /* #F6AE2D */
-            font-size: clamp(2rem, 6vw, 5rem); /* Responsive scaling close to 110px */
-            font-weight: 900; /* Extra bold */
-            margin-bottom: 1rem;
-            line-height: 1;
-        }
-
-
-
-        #hero h2 {
-            font-size: 1.3rem;
-            opacity: 0.7;
-            font-weight: 600;
-        }
-
-        #problem h2 {
-            font-size: 1.3rem;
-            opacity: 0.7;
-            font-weight: 600;
-        }
-
-        #outcomes h2 {
-            font-size: 1.3rem;
-            opacity: 0.7;
-            font-weight: 600;
-        }
-        
-
-        #hero h3 {
-            font-size: 1rem;
-            opacity: 0.7;
-            font-weight: 500;
-        }
-
-        .hero-author {
-            margin-top: 3rem;
-            font-weight: 500;
-        }
-
-        /* === CONTENT SLIDES STYLE === */
-        .section-title {
-            font-size: 1.5rem; /* 35px in CSS */
-            font-weight: 700;
-            opacity: 0.7;
-            margin-bottom: 2rem;
-            position: relative;
-        }
-
-        /* === OUTCOMES GRID === */
-        .outcomes-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-        
-        .outcome-card {
-            padding: 2rem;
-            border-radius: 8px;
-            color: white; /* Text white for colored backgrounds */
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease;
-        }
-        
-        .outcome-card:hover { transform: translateY(-5px); }
-        .outcome-card h3 { color: white; }
-        .outcome-card p { font-size: 1rem; }
-        .outcome-card img { border-radius: 4px; border: 2px solid rgba(255,255,255,0.3); }
-
-        /* Applying colors from */
-        .card-1 { background-color: var(--card-purple); }
-        .card-2 { background-color: var(--card-orange); }
-        .card-3 { background-color: var(--card-blue); }
-        .card-4 { background-color: var(--card-pink); }
-
-        /* === OUTLOOK / FOOTER === */
-        #outlook ul {
-            text-align: left;
-            list-style: none;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        
-        #outlook li {
-            margin-bottom: 1rem;
-            padding-left: 1.5rem;
-            position: relative;
-            font-size: 1.2rem;
-            opacity: 0.8;
-        }
-
-        #outlook li::before {
-            content: "•";
-            color: var(--red-light);
-            font-weight: bold;
-            position: absolute;
-            left: 0;
-            font-size: 1.5em;
-            line-height: 1;
-        }
-
-        footer {
-            background-color: var(--text-primary);
-            color: #fff;
-            padding: 4rem 1rem;
-            text-align: center;
-        }
-        
-        footer h3 { color: #fff; opacity: 0.9; }
-        footer a { text-decoration: underline; opacity: 0.8; }
-        footer a:hover { color: var(--yellow-light); opacity: 1; }
-
-        /* Animation class */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
-        }
-        .fade-in.visible {
-            opacity: 1;
-            transform: none;
-        }
-
-    </style>
+    <link rel="stylesheet" href="assets/css/mtg.css">
 </head>
 <body>
+
+    <header id="nav-header">
+        <a href="#" class="brand"><span>MINE-THE-GAP</span></a>
+    </header>
 
     <section id="hero">
         <div class="fade-in">
@@ -273,25 +28,18 @@
 
     <section id="problem">
         <div class="container fade-in">
-            <!-- <img src="assets/img/gap_map-red.png" alt="Map showing global mining data gaps"> -->
             <h2>Global energy transition and digitalization are increasing demand for minerals. 
             <strong>MINE-THE-GAP</strong> addresses the urgent need for spatial information to understand these impacts.</h2>
-            <!-- <h2 class="section-title">What is the extent of the mining sector's undocumented global footprint?</h2> -->
         </div>
     </section>
 
     <section id="methods">
         <div class="container fade-in">
-            <div style="position: relative; max-width: 900px; margin: 0 auto; display: flex; flex-direction: column; gap: 2rem;">
-                <img src="assets/img/MINE-THE-GAP-aim.png" alt="Project Aim Diagram">
-                <img src="assets/img/MINE-THE-GAP-innovation.png" alt="Innovation Strategy Diagram">
+            <div style="max-width: 900px; margin: 0 auto; display: flex; flex-direction: column; gap: 2rem;">
+                <img src="assets/img/MINE-THE-GAP-aim.png" alt="Project Aim">
+                <img src="assets/img/MINE-THE-GAP-innovation.png" alt="Innovation Strategy">
             </div>
-            <strong>MINE-THE-GAP</strong> will develop scalable models to map key sets of mine-level indicators using 
-            artificial intelligence and satellite earth observation
-            <!-- <h2 class="section-title">MINE-THE-GAP will develop scalable models to map mining indicators using 
-                artificial intelligence and satellite earth observation
-            </h2> -->
-
+            <p><strong>MINE-THE-GAP</strong> will develop scalable models to map key sets of mine-level indicators using artificial intelligence and satellite earth observation.</p>
         </div>
     </section>
 
@@ -299,32 +47,36 @@
         <div class="container fade-in">
             <h2>Global mine-level indicators</h2>
             <img src="assets/img/mtg-outcome.png" alt="Data Integration">
-            The project will advance research on spatial data science and sustainability and enable understanding spatiotemporal socio-ecological dynamics of mineral extraction globally.
+            <p>The project will advance research on spatial data science and sustainability and enable understanding spatiotemporal socio-ecological dynamics of mineral extraction globally.</p>
         </div>
-        <br><br>
-        <a href="https://victormaus.github.io/projects/mine_the_gap.html#hiring" style="color: #d9534f; font-weight: bold; text-decoration: none; font-size: 1.1em;">
-        Open jobs!
+        <br>
+        <a href="https://victormaus.github.io/projects/mine_the_gap.html#hiring" style="color: var(--accent-red); font-weight: bold; text-decoration: none; font-size: 1.1em;">
+            Open jobs!
         </a>
     </section>
 
-    
+    <div id="modal-overlay">
+        <div id="data-modal">
+            <h2>Information</h2>
+            <p>Data details will appear here.</p>
+            <div class="modal-close">
+                <button class="btn-close">Close</button>
+            </div>
+        </div>
+    </div>
+
     <footer>
         <div class="container">
-            <br>
             <h3>More information and data coming soon!</h3>
-            <br>
             <p><strong>Contact:</strong>
-                <a href="mailto:victor.maus@wu.ac.at">victor.maus@wu.ac.at</a>
-                <br>
+                <a href="mailto:victor.maus@wu.ac.at">victor.maus@wu.ac.at</a> | 
                 <a href="https://victormaus.github.io" target="_blank">victormaus.github.io</a>
             </p>
-            <br>
             <p style="font-size: 0.8rem; opacity: 0.5;">&copy; 2025 Victor Maus. All rights reserved.</p>
         </div>
     </footer>
 
     <script>
-        // Simple Intersection Observer to fade in elements
         document.addEventListener("DOMContentLoaded", function() {
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
