@@ -1,5 +1,5 @@
 /* ============================================================
-   MINE-THE-GAP Global Styles
+   MINE-THE-GAP Global Styles mtg.css
    ============================================================ */
 :root {
     --primary-dark: #1a1a1c;
@@ -200,16 +200,15 @@ a:hover {
     font-weight: 500;
 }
 
-/* Image Handling */
-img {
-    max-width: 70%;
+.content-img {
+    max-width: 100%;
     height: auto;
     display: block;
     margin: 2rem auto;
 }
 
-#outcomes img, #problem img {
-    max-width: 100%;
+#outcomes img, #problem img, #methods img {
+    max-width: 70%;
     margin-left: auto;
     margin-right: auto;
 }
