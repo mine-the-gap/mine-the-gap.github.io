@@ -32,6 +32,10 @@ body {
     width: 100%;
 }
 
+html {
+    scrollbar-gutter: stable;
+}
+
 a {
     color: var(--text-light); /* Lighter than main text */
     text-decoration: underline;
@@ -150,7 +154,15 @@ a:hover {
     justify-content: center;
     align-items: center;
     text-align: center;
-    width: 100%;
+    position: relative;
+}
+
+.fullscreen-section ul,
+.fullscreen-section ol,
+.fullscreen-section figure {
+    padding-left: 0;
+    margin-left: 0;
+    margin-right: 0;
 }
 
 .container {
