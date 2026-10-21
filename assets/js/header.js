@@ -20,13 +20,25 @@ class ProjectHeader extends HTMLElement {
                     </svg>
                 </button>
                 <ul class="mtg-nav-menu" id="nav-list">
+                    <li><a href="/publications.html" class="mtg-nav-link" data-nav="publications.html">Publications</a></li>
+                    <li><a href="/jobs.html" class="mtg-nav-link" data-nav="jobs.html">Jobs</a></li>
                     <li><a href="https://maps.minethegap.eu" class="mtg-nav-link">Maps</a></li>
-                    <!-- Add more links here in the future -->
                 </ul>
             </nav>
         </header>`;
 
         this.initMobileMenu();
+        this.highlightCurrent();
+    }
+
+    highlightCurrent() {
+        const current = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
+        this.querySelectorAll('.mtg-nav-link[data-nav]').forEach((link) => {
+            if (link.getAttribute('data-nav').toLowerCase() === current) {
+                link.classList.add('active-link');
+                link.setAttribute('aria-current', 'page');
+            }
+        });
     }
 
     initMobileMenu() {

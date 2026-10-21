@@ -1,0 +1,39 @@
+{
+  "publications": [
+    {
+      "title": "Mining triggers extensive additional deforestation in sub-Saharan Africa",
+      "authors": "Oscar Morton, Christopher G. Bousfield, Prince Dégny Valé, Ieuan Lamb, Victor Maus, Robert G. Bryant, David P. Edwards",
+      "venue": "Nature",
+      "year": 2026,
+      "type": "Journal article",
+      "doi": "10.1038/s41586-026-10551-2"
+    },
+    {
+      "title": "A data-driven approach to mapping global commodity-specific mining land-use",
+      "authors": "Victor Maus",
+      "venue": "Journal of Cleaner Production, vol. 540",
+      "year": 2026,
+      "type": "Journal article",
+      "doi": "10.1016/j.jclepro.2025.147437"
+    },
+    {
+      "title": "MINE-THE-GAP: Satellite Earth Observation and AI to Map Global Mining Footprints and Support CRM Transparency",
+      "authors": "Victor Maus",
+      "venue": "EGU General Assembly 2026, Vienna",
+      "year": 2026,
+      "type": "Conference abstract",
+      "doi": "10.5194/egusphere-egu26-21341"
+    }
+  ],
+  "software": [
+    {
+      "name": "mining-spatial-data-integration",
+      "title": "Spatial Data Integration for Mine Land-Use Analysis",
+      "authors": "Victor Maus",
+      "description": "R scripts to integrate global mining land-use datasets and link mine polygons to mineral commodities.",
+      "year": 2025,
+      "repo": "https://github.com/vwmaus/mining-spatial-data-integration",
+      "doi": "10.5281/zenodo.15611392"
+    }
+  ]
+}

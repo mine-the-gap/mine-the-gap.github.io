@@ -56,8 +56,8 @@
                 <p>The project will advance research on spatial data science and sustainability and enable understanding spatiotemporal socio-ecological dynamics of mineral extraction globally.</p>
             </div>
             <br>
-            <a href="https://victormaus.github.io/projects/mine_the_gap.html#hiring" style="color: var(--accent-red); font-weight: bold; text-decoration: none; font-size: 1.1em;">
-                Open jobs!
+            <a href="/jobs.html" id="hiring-cta" style="color: var(--accent-red); font-weight: bold; text-decoration: none; font-size: 1.1em;">
+                We're hiring — 3 open PhD positions →
             </a>
         </section>
     </main>
@@ -88,6 +88,23 @@
 
             document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
         });
+    </script>
+
+    <script>
+        // Hide the "we're hiring" link automatically once every vacancy's
+        // application deadline (jobs.json "closes") has passed. Fails open:
+        // if the check cannot run, the link stays visible.
+        (function () {
+            const cta = document.getElementById('hiring-cta');
+            if (!cta) return;
+            fetch('assets/data/jobs.json', { cache: 'no-cache' })
+                .then((r) => r.ok ? r.json() : Promise.reject(r.status))
+                .then((data) => {
+                    const open = (data.vacancies || []).some((v) => !v.closes || new Date(v.closes).getTime() >= Date.now());
+                    if (!open) cta.style.display = 'none';
+                })
+                .catch(() => { /* leave the link visible if the check fails */ });
+        })();
     </script>
 </body>
 </html>

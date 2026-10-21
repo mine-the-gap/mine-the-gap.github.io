@@ -1,0 +1,26 @@
+{
+  "vacancies": [
+    {
+      "id": "uef-phd-2026",
+      "title": "Doctoral Researcher (PhD) — 3 positions",
+      "org": "University of Eastern Finland · Kuopio, Finland",
+      "deadline": "17 November 2026",
+      "closes": "2026-11-17T23:59:59+02:00",
+      "applyUrl": "https://uef.varbi.com/what:job/jobID:978704/",
+      "topics": [
+        {
+          "title": "Mining land use",
+          "description": "Semantic segmentation of satellite imagery to map mining areas such as open pits, waste-rock piles, and tailings dams."
+        },
+        {
+          "title": "Mining waste",
+          "description": "Predicting terrain height changes from radar and optical satellite image time series to estimate mining waste."
+        },
+        {
+          "title": "Minerals & commodities",
+          "description": "Classifying multispectral and hyperspectral imagery to identify the minerals and commodities at mining sites."
+        }
+      ]
+    }
+  ]
+}
