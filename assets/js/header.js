@@ -11,7 +11,7 @@ class ProjectHeader extends HTMLElement {
         this.innerHTML = `
         <header id="nav-header">
             <a href="/" class="brand" aria-label="MINE-THE-GAP home">
-                <svg class="brand-mark" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="3" width="20" height="18" rx="4" fill="currentColor"/><path d="M7 8h10l-2 3h-6zM9 13h6l-2 3h-2z" fill="rgba(0,0,0,.35)"/></svg>
+                <svg class="brand-mark" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="3" width="20" height="18" rx="4" fill="currentColor"/><path d="M7 8h10l-2 3h-6zM9 13h6l-2 3h-2z" fill="rgba(0,0,0,.35)"/></svg>
                 <span>MINE-THE-GAP</span>
             </a>
 
@@ -27,10 +27,10 @@ class ProjectHeader extends HTMLElement {
                     <li><a href="https://app.minethegap.eu/" class="mtg-nav-link">App</a></li>
                     <li><a href="https://maps.minethegap.eu/" class="mtg-nav-link">Maps</a></li>
                     <li><a href="#contact" class="mtg-nav-icon" data-contact-open title="Get in touch" aria-label="Contact: get in touch">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6.5 8.5 6 8.5-6"/></svg><span class="label">Contact</span></a></li>
+                        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6.5 8.5 6 8.5-6"/></svg><span class="label">Contact</span></a></li>
                     <li><button type="button" class="mtg-nav-icon" data-theme-toggle title="Switch between light and dark" aria-label="Switch between light and dark">
-                        <svg class="theme-icon-moon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
-                        <svg class="theme-icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M4.6 4.6l1.6 1.6M17.8 17.8l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.6 19.4l1.6-1.6M17.8 6.2l1.6-1.6"/></svg><span class="label">Light / dark</span></button></li>
+                        <svg class="theme-icon-moon" width="17" height="17" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                        <svg class="theme-icon-sun" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M4.6 4.6l1.6 1.6M17.8 17.8l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.6 19.4l1.6-1.6M17.8 6.2l1.6-1.6"/></svg><span class="label">Light / dark</span></button></li>
                 </ul>
             </nav>
         </header>`;
