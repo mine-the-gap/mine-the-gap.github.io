@@ -2,7 +2,8 @@
  * Shared Header Component for MINE-THE-GAP
  * Defines a custom element <project-header> with responsive navigation.
  * Same links, in the same order, as the nav pill on maps.minethegap.eu.
- * "Contact" opens the dialog from contact.js (data-contact-open).
+ * The envelope opens the contact dialog from contact.js (data-contact-open); the moon/sun button switches the theme
+ * (theme.js).
  */
 class ProjectHeader extends HTMLElement {
     connectedCallback() {
@@ -25,7 +26,11 @@ class ProjectHeader extends HTMLElement {
                     <li><a href="/jobs.html" class="mtg-nav-link" data-nav="jobs.html">Jobs</a></li>
                     <li><a href="https://app.minethegap.eu/" class="mtg-nav-link">App</a></li>
                     <li><a href="https://maps.minethegap.eu/" class="mtg-nav-link">Maps</a></li>
-                    <li><a href="#contact" class="mtg-nav-link" data-contact-open>Contact</a></li>
+                    <li><a href="#contact" class="mtg-nav-icon" data-contact-open title="Get in touch" aria-label="Contact: get in touch">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6.5 8.5 6 8.5-6"/></svg><span class="label">Contact</span></a></li>
+                    <li><button type="button" class="mtg-nav-icon" data-theme-toggle title="Switch between light and dark" aria-label="Switch between light and dark">
+                        <svg class="theme-icon-moon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+                        <svg class="theme-icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M4.6 4.6l1.6 1.6M17.8 17.8l1.6 1.6M2.5 12h2.2M19.3 12h2.2M4.6 19.4l1.6-1.6M17.8 6.2l1.6-1.6"/></svg><span class="label">Light / dark</span></button></li>
                 </ul>
             </nav>
         </header>`;

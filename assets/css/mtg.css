@@ -31,8 +31,9 @@
     color-scheme: light;
 }
 
+/* Dark theme: automatic (follows the OS) unless the header switch chose one (data-theme on <html>, theme.js). */
 @media (prefers-color-scheme: dark) {
-    :root {
+    :root:not([data-theme="light"]) {
         --fg: #e6e8eb;
         --muted: #9aa3ad;
         --bg: #111418;
@@ -49,6 +50,23 @@
         --shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
         color-scheme: dark;
     }
+}
+:root[data-theme="dark"] {
+    --fg: #e6e8eb;
+    --muted: #9aa3ad;
+    --bg: #111418;
+    --card: #1a1e24;
+    --line: #2a3038;
+    --soft: #1f242b;
+    --ink-strong: #f1f3f5;
+    --header-bg: #181c22;
+    --header-fg: #e9ebee;
+    --accent-dark: #e4a233;
+    --accent-ink: #f0a93a;
+    --accent-tint: rgba(240, 169, 58, 0.12);
+    --error: #ff8077;
+    --shadow: 0 2px 12px rgba(0, 0, 0, 0.35);
+    color-scheme: dark;
 }
 
 * { box-sizing: border-box; }
@@ -174,6 +192,21 @@ a:hover { color: var(--accent-ink); }
 .mtg-nav-link:hover { color: var(--accent); }
 .mtg-nav-link.active-link { color: var(--accent); }
 
+/* Icon buttons in the nav: Contact (an envelope) and the light/dark switch (moon while light, sun while dark). */
+.mtg-nav-icon { display: inline-grid; place-items: center; width: 32px; height: 32px; padding: 0; color: var(--header-fg); text-decoration: none;
+    background: rgba(255, 255, 255, 0.08); border: 1px solid rgba(255, 255, 255, 0.22); border-radius: 50%;
+    cursor: pointer; transition: color 0.2s ease, background 0.2s ease; }
+.mtg-nav-icon:hover { color: #fff; background: rgba(255, 255, 255, 0.18); }
+.mtg-nav-icon svg { width: 17px; height: 17px; }
+.mtg-nav-icon .label { display: none; }
+.theme-icon-sun { display: none; }
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) .theme-icon-sun { display: block; }
+    :root:not([data-theme="light"]) .theme-icon-moon { display: none; }
+}
+:root[data-theme="dark"] .theme-icon-sun { display: block; }
+:root[data-theme="dark"] .theme-icon-moon { display: none; }
+
 .mtg-menu-toggle {
     display: none;
     background: none;
@@ -292,10 +325,15 @@ a:hover { color: var(--accent-ink); }
     border-radius: 8px;
 }
 
-/* Figures are drawn on white: give them a white mat in the dark theme. */
+/* Each figure comes in a light and a dark version (the -dark.png files: greys flipped, colours kept); the theme
+   shows one. */
+.fig-dark { display: none; }
 @media (prefers-color-scheme: dark) {
-    #outcomes img, #methods img { background: #ffffff; padding: 0.6rem; }
+    :root:not([data-theme="light"]) .fig-light { display: none; }
+    :root:not([data-theme="light"]) .fig-dark { display: block; }
 }
+:root[data-theme="dark"] .fig-light { display: none; }
+:root[data-theme="dark"] .fig-dark { display: block; }
 
 #hiring-cta { margin-top: 1.5rem; }
 
@@ -589,6 +627,9 @@ a.doi:hover { color: var(--accent-ink); text-decoration: underline; }
     }
     .mtg-nav-menu.active { max-height: 400px; padding: 12px 0; }
     .mtg-nav-menu li { padding: 13px 0; }
+    .mtg-nav-icon { width: auto; height: auto; padding: 0.35rem 0.9rem; border-radius: 999px; gap: 0.5rem;
+        grid-auto-flow: column; font-family: var(--font-head); font-weight: 600; font-size: 0.95rem; }
+    .mtg-nav-icon .label { display: inline; }
 
     #outcomes img, #problem img, #methods img { max-width: 100%; }
 
