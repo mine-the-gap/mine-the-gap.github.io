@@ -24,7 +24,7 @@ class ProjectHeader extends HTMLElement {
                 <ul class="mtg-nav-menu" id="nav-list">
                     <li><a href="/publications.html" class="mtg-nav-link" data-nav="publications.html">Publications</a></li>
                     <li><a href="/jobs.html" class="mtg-nav-link" data-nav="jobs.html">Jobs</a></li>
-                    <li><a href="https://app.minethegap.eu/" class="mtg-nav-link">App</a></li>
+                    <li><a href="/app.html" class="mtg-nav-link" data-nav="app.html">App</a></li>
                     <li><a href="https://maps.minethegap.eu/" class="mtg-nav-link">Maps</a></li>
                     <li><a href="#contact" class="mtg-nav-icon" data-contact-open title="Get in touch" aria-label="Contact: get in touch">
                         <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6.5 8.5 6 8.5-6"/></svg><span class="label">Contact</span></a></li>

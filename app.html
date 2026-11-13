@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://app.minethegap.eu; form-action https://app.minethegap.eu; base-uri 'none'; object-src 'none'; upgrade-insecure-requests">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <title>App — MINE-THE-GAP</title>
+    <meta name="description" content="The MINE-THE-GAP App, where researchers map the world's mines together on satellite images, with AI support. Access is by invitation.">
+
+    <!-- Styles -->
+    <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+    <link rel="preload" href="/assets/fonts/archivo.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/assets/css/mtg.css?v=0e7c161e5a">
+    <script src="/assets/js/theme.js?v=eacd944b30"></script>
+
+    <!-- Reusable Components -->
+    <script src="/assets/js/header.js?v=3459d39ae2" defer></script>
+    <script src="/assets/js/footer.js?v=007e3062f9" defer></script>
+    <script src="/assets/js/contact.js?v=bbd29db395" defer></script>
+    <script src="/assets/js/app.js?v=bbff5ca15a" defer></script>
+</head>
+<body>
+
+    <!-- Reusable Header Tag -->
+    <project-header></project-header>
+
+    <section class="page-hero compact">
+        <h1>The App</h1>
+        <p>Mapping the world's mines together, on satellite images, with AI support.</p>
+    </section>
+
+    <main class="page-main">
+        <!-- The App's public page: the app.minethegap.eu sign-in sits behind an access gate, so its video lives here.
+             The video comes from the App's repository (mtg-app, tools/tutorial/video_compose.py). -->
+        <div class="app-intro">
+            <figure class="app-video">
+                <video data-app-video muted loop playsinline preload="metadata" poster="/assets/video/app-video.jpg"
+                       aria-label="Two mines, each outlined twice on a satellite image: on the left with AI support, on the right by hand, corner by corner. A clock above them shows how long each side takes.">
+                    <source src="/assets/video/app-video.mp4" type="video/mp4">
+                </video>
+                <figcaption>
+                    <span>Interested in our research on mining footprints?
+                        <a href="#contact" data-contact-open data-contact-subject="MINE-THE-GAP: Interest in your research on mining footprints">Get in touch.</a></span>
+                    <button type="button" class="app-video-toggle" data-app-video-toggle data-state="paused" aria-label="Play the video">
+                        <svg class="icon-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5z" fill="currentColor"/></svg>
+                        <svg class="icon-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z" fill="currentColor"/></svg>
+                    </button>
+                </figcaption>
+            </figure>
+            <aside class="app-signin" aria-labelledby="app-signin-title">
+                <h2 id="app-signin-title">Sign in</h2>
+                <p>For the researchers and students invited to the App.</p>
+                <a class="btn-primary" href="https://app.minethegap.eu/">Sign in to the App</a>
+                <p class="app-signin-note">You will first be asked for your email address and a one-time code sent to
+                    it, then for your password.</p>
+            </aside>
+        </div>
+    </main>
+
+    <!-- Reusable Footer Tag -->
+    <project-footer></project-footer>
+
+</body>
+</html>

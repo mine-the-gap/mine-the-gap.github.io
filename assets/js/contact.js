@@ -2,7 +2,8 @@
  * MINE-THE-GAP "Get in touch" dialog (shared by minethegap.eu and maps.minethegap.eu).
  *
  * Adds one native <dialog> with the contact form to the page and opens it from any
- * element marked [data-contact-open] (the "Contact" nav link, the footer button), and
+ * element marked [data-contact-open] (the "Contact" nav link, the footer button; one with data-contact-subject
+ * suggests the subject, as the App page's "Get in touch" does), and
  * on load when the address ends in #contact. No email address appears on the page:
  * the message is posted to the app's contact endpoint, which forwards it.
  *
@@ -125,7 +126,7 @@
         errorBox.hidden = false;
     }
 
-    function open() {
+    function open(subject) {
         if (!dialog) build();
         if (!done.hidden) {           // after a sent message, start a fresh form
             form.reset();
@@ -134,6 +135,7 @@
             updateCounter();
         }
         errorBox.hidden = true;
+        if (subject && !form.elements.subject.value) form.elements.subject.value = subject;  // data-contact-subject
         form.elements.started.value = String(Date.now());
         if (!dialog.open) dialog.showModal();
         form.elements.name.focus();
@@ -190,7 +192,7 @@
         var trigger = e.target.closest && e.target.closest('[data-contact-open]');
         if (!trigger) return;
         e.preventDefault();
-        open();
+        open(trigger.getAttribute('data-contact-subject'));  // a link may suggest the subject
     });
 
     function openFromHash() { if (location.hash === '#contact') open(); }
