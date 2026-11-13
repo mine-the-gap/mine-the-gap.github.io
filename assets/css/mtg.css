@@ -647,37 +647,45 @@ a.doi:hover { color: var(--accent-ink); text-decoration: underline; }
 }
 
 /* ---- The App page (app.html): the video, and beside it (below it on a phone) the way in ---- */
-.page-hero.compact { padding-bottom: 2rem; }
-.app-intro { display: grid; gap: 1.5rem 2.5rem; max-width: 1240px; margin: 0 auto; text-align: left; }
+.app-main { padding-top: calc(var(--header-height) + 2.5rem); }
+.app-title {
+    max-width: 1240px;
+    margin: 0 auto 1.4rem;
+    font-size: clamp(1.25rem, 0.9rem + 1.6vw, 2.2rem);
+    font-weight: 800;
+    line-height: 1.15;
+    text-align: left;
+    text-wrap: balance;
+}
+.app-title::after {
+    content: "";
+    display: block;
+    width: 3rem;
+    height: 3px;
+    margin-top: 0.6rem;
+    border-radius: 2px;
+    background: var(--accent);
+}
+.app-intro { display: grid; gap: 1.25rem 2.5rem; max-width: 1240px; margin: 0 auto; text-align: left; }
 @media (min-width: 64rem) {
     .app-intro { grid-template-columns: minmax(0, 1fr) 20rem; align-items: center; }
 }
-.app-video { margin: 0; }
+.app-video { margin: 0; min-width: 0; }
+/* The poster is also the background, so the frame is never empty; the phone cut below 40rem (app.js picks the
+   same cut). */
 .app-video video {
     display: block;
     width: 100%;
     height: auto;
     aspect-ratio: 16 / 9;
-    background: #15181c;
+    background: #15181c url("/assets/video/app-video.jpg") center / cover no-repeat;
     border-radius: 10px;
     box-shadow: 0 0 0 1px var(--line), 0 8px 28px rgba(0, 0, 0, 0.16);
 }
-.app-video figcaption {
-    display: flex;
-    gap: 1rem;
-    align-items: flex-start;
-    justify-content: space-between;
-    margin-top: 0.75rem;
-    font-size: 1.05rem;
-    line-height: 1.45;
+@media (max-width: 40rem) {
+    .app-video video { aspect-ratio: 6 / 5; background-image: url("/assets/video/app-video-phone.jpg"); }
 }
-.app-video figcaption a {
-    font-weight: 650;
-    color: var(--accent-ink);
-    text-decoration-color: var(--accent);
-    text-decoration-thickness: 2px;
-    text-underline-offset: 3px;
-}
+.app-video-bar { display: flex; justify-content: flex-end; gap: 0.5rem; margin-top: 0.6rem; }
 .app-video-toggle {
     flex: none;
     display: grid;
@@ -696,6 +704,10 @@ a.doi:hover { color: var(--accent-ink); text-decoration: underline; }
 .app-video-toggle[data-state="playing"] .icon-play,
 .app-video-toggle[data-state="paused"] .icon-pause { display: none; }
 .app-signin {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 28rem;
+    justify-self: center;
     padding: 1.6rem 1.5rem 1.4rem;
     background: var(--card);
     border: 1px solid var(--line);
@@ -703,5 +715,28 @@ a.doi:hover { color: var(--accent-ink); text-decoration: underline; }
 }
 .app-signin h2 { margin: 0 0 0.5rem; font-size: 1.5rem; }
 .app-signin p { margin: 0 0 1.1rem; line-height: 1.5; }
-.app-signin .btn-primary { display: block; text-align: center; margin-bottom: 1rem; }
-.app-signin-note { font-size: 0.88rem; color: var(--muted); }
+.app-signin .btn-primary { display: block; text-align: center; margin-bottom: 1.1rem; }
+.app-signin p.app-signin-contact { margin: 0; font-size: 0.95rem; color: var(--muted); }
+.app-signin-contact a {
+    font-weight: 650;
+    color: var(--accent-ink);
+    text-decoration-color: var(--accent);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 3px;
+}
+@media (max-width: 600px) {
+    .app-main { padding-top: calc(var(--header-height) + 1.1rem); }
+    .app-title { margin-bottom: 1rem; }
+    .app-signin { padding: 1.3rem 1.2rem 1.2rem; }
+}
+/* A phone turned sideways: the whole video on the screen, its height the screen's. */
+@media (orientation: landscape) and (max-height: 32rem) {
+    .app-main { padding-top: calc(var(--header-height) + 0.75rem); }
+    .app-video { width: fit-content; max-width: 100%; margin: 0 auto; }
+    .app-video video {
+        width: auto;
+        max-width: 100%;
+        height: calc(100vh - var(--header-height) - 1.5rem);
+        height: calc(100svh - var(--header-height) - 1.5rem);
+    }
+}
